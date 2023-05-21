@@ -92,14 +92,17 @@ Install the following services to your cluster:
 - nginx ingress
 - prometheus
 
-- Make sure you have helm installed on your machine 
-- Add the necessary Helm repositories 
+Make sure you have helm installed on your machine 
+
+Add the necessary Helm repositories 
 
 Create a namespace 
 kubectl create namespace ingress-nginx
 
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+
 helm repo update
 
 Install Nginx Ingress:
@@ -128,11 +131,11 @@ docker ps
     
 To verify the application locally or using ec2 instance public ip, I used public ip of ec2 intance to check the it works locally.
 
-<public-ip>:3000
+(public-ip):3000
 
-<public-ip>:3000/health
+(public-ip):3000/health
 
-<public-ip>:3000/info
+(public-ip):3000/info
     
 # Push to Dockerhub:
 docker login
