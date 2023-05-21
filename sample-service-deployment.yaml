@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-service-deployment
+  labels:
+    app: sample-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-service
+  template:
+    metadata:
+      labels:
+        app: sample-service
+    spec:
+      containers:
+        - name: sample-service
+          image: naimat/devops-task:latest # <image>:<tag>
+          resources:
+            limits:
+              cpu: "1"
+              memory: "512Mi"
+            requests:
+              cpu: "0.5"
+              memory: "256Mi"
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+          ports:
+            - containerPort: 3000
+#          livenessProbe:
+#           httpGet:
+#             path: /sample-service/index.js
+#             port: 3000
+#           initialDelaySeconds: 10
+#            periodSeconds: 15
+#          readinessProbe:
+#            httpGet:
+#              path: /sample-service/index.js
+#              port: 3000
+#            initialDelaySeconds: 10
+#            periodSeconds: 15

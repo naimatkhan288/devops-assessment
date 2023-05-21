@@ -1,0 +1,36 @@
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: sample-service-ingress
+# spec:
+#   rules:
+#     - host: devopstask.com
+#       http:
+#         paths:
+#           - path: /health
+#             pathType: Prefix
+#             backend:
+#               service:
+#                 name: sample-service-service
+#                 port:
+#                   number: 80
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+  - host: devopstask.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: sample-service-service
+            port:
+              number: 80
+
