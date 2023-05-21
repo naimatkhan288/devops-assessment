@@ -64,7 +64,7 @@ all the resources mentioned above should exist on the same one namespace, and th
 a) Create a cluster:
 Export export K3S_CLUSTER_ARGS terminal
 
--#export K3S_CLUSTER_ARGS=‘--no-deploy=traefik’
+export K3S_CLUSTER_ARGS=‘--no-deploy=traefik’
 
 And then 
 make cluster
@@ -160,7 +160,7 @@ kubectl -n ingress-nginx get pods
 sudo vi /etc/hosts 
 127.0.0.1  devopstask.com
 
--# kubectl -n ingress-nginx port-forward svc/ingress-nginx-controller 3000:443
+kubectl -n ingress-nginx port-forward svc/ingress-nginx-controller 3000:443
  
 To Access 
 
