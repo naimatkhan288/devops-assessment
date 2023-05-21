@@ -80,8 +80,6 @@ b) Install helm:
 
 Download Helm: Visit the Helm GitHub repository (https://github.com/helm/helm/releases)
 
-Install helm using the 
-
 Verify Helm installation: To ensure that Helm is installed correctly and working, you can run the following command:
 
 helm version
