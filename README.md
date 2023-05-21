@@ -115,8 +115,10 @@ docker run -p 3000:80 -d naimat/devops-task
     
 To verify the application locally or using ec2 instance public ip, I used public ip of ec2 intance to check the it works locally.
 
-<public-ip>:3000,
-<public-ip>:3000/health,
+<public-ip>:3000
+
+<public-ip>:3000/health
+
 <public-ip>:3000/info
     
 # Push to Dockerhub:
@@ -148,11 +150,17 @@ kubectl get deployment
 # Ingress controler:
 
 kubectl get ingress
+
 kubectl get po -n kube-system
+
 kubectl get all -n kube-system
+
 kubectl get all -n ingress-nginx
+
 kubectl describe svc -n ingress-nginx
+
 kubectl get svc -n ingress-nginx
+
 kubectl -n ingress-nginx get pods 
 
 sudo vi /etc/hosts 
@@ -162,6 +170,8 @@ kubectl -n ingress-nginx port-forward svc/ingress-nginx-controller 3000:443
  
 # To Access 
 
-https://devopstask.com:3000/,
-https://devopstask.com:3000/info,
+https://devopstask.com:3000/
+
+https://devopstask.com:3000/info
+
 https://devopstask.com:3000/health
