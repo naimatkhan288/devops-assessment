@@ -140,7 +140,7 @@ docker login
 docker push naimat/devops-task 
     
 # Pull the image:
-docker push naimat/devops-task
+docker pull naimat/devops-task
 
 # Deploy to Kuberntes cluster:
 kubectl apply -f  sample-service-deployment.yaml
