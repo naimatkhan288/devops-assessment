@@ -56,3 +56,94 @@ all the resources mentioned above should exist on the same one namespace, and th
 
 
  ✨ Good Luck ✨
+
+ --------------------------------------------------------
+ Steps to do the Assessment
+
+## I - environment preparation:
+a) Create a cluster:
+Export export K3S_CLUSTER_ARGS terminal
+
+-#export K3S_CLUSTER_ARGS=‘--no-deploy=traefik’
+
+And then 
+-# make cluster
+
+Cluster is ready, t heck the cluster
+-# k3d cluster list 
+-# kubectl get all 
+
+b) Install helm:
+Download Helm: Visit the Helm GitHub repository (https://github.com/helm/helm/releases)
+Install helm using the 
+Verify Helm installation: To ensure that Helm is installed correctly and working, you can run the following command:
+helm version
+
+
+## II - cluster preparation:
+Install the following services to your cluster: 
+- nginx ingress
+- prometheus
+
+- Make sure you have helm installed on your machine 
+- Add the necessary Helm repositories 
+
+Create a namespace 
+kubectl create namespace ingress-nginx
+
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+
+Install Nginx Ingress:
+
+helm install ingress-nginx ingress-nginx/ingress-nginx --namespace ingress-nginx
+
+Install Prometheus:
+
+helm install ingress-nginx ingress-nginx/ingress-nginx --namespace ingress-nginx
+helm install prometheus prometheus-community/prometheus --namespace ingress-nginx
+
+Once the installation is complete, you should have Nginx Ingress and Prometheus running in your cluster. You can verify their deployment using kubectl commands,
+kubectl get deployments -n <namespace>.
+kubectl get deployments -n ingress-nginx
+
+## III - service deployment
+Build an image:
+-# docker image prone -a —> do delete all local images
+-# docker build .
+-# docker run (image_id)
+-# docker run -p 3000:80 (image_id)
+-# docker run -p 3000:80 —rm (image_id or name)
+docker run -p 3000:80 -d naimat/devops-task
+-# docker ps 
+
+
+Push to dockerhub:
+-# docker login
+-# docker build -t naimat/devops-task .
+-# docker push naimat/devops-task
+-# docker push naimat/devops-task
+
+Ingress controler:
+-# minikube addons list
+-# minikube addons enable ingress
+-# kubectl get po -n kube-system
+
+-# kubectl get ingress
+-# kubectl get all -n kube-system
+-# kubectl get all -n ingress-nginx
+-# kubectl describe svc -n ingress-nginx
+-# kubectl get svc -n ingress-nginx
+-# kubectl -n ingress-nginx get pods 
+
+-# sudo vi /etc/hosts 
+127.0.0.1  devopstask.com
+
+-# kubectl -n ingress-nginx port-forward svc/ingress-nginx-controller 3000:443
+ 
+To Access 
+
+https://devopstask.com:3000/
+https://devopstask.com:3000/info
+https://devopstask.com:3000/health
