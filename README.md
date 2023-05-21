@@ -70,7 +70,7 @@ And then
 
 make cluster
 
-Cluster is ready, to heck the cluster
+Cluster is ready, to check the cluster
 
 k3d cluster list 
 
