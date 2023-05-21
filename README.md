@@ -58,7 +58,7 @@ all the resources mentioned above should exist on the same one namespace, and th
  ✨ Good Luck ✨
 
  ------------------------------------------------------------------------
- Steps to do the Assessment
+ # Steps to do the Assessment
 
 ## I - environment preparation:
 a) Create a cluster:
