@@ -146,6 +146,8 @@ docker push naimat/devops-task
 docker pull naimat/devops-task
 
 # Deploy to Kuberntes cluster:
+The cluster is runnung on local machine
+
 kubectl apply -f  sample-service-deployment.yaml
 
 kubectl apply -f  sample-service-service.yaml
