@@ -107,11 +107,12 @@ Once the installation is complete, you should have Nginx Ingress and Prometheus 
 kubectl get deployments -n <namespace>.
 kubectl get deployments -n ingress-nginx
 
-## III - service deployment
-Build and run image locally
+## III - service deployment:
+Build image from the Dockerfile and run image locally
 docker build -t naimat/devops-task .
 docker run -p 3000:80 -d naimat/devops-task
 -# docker ps 
+    
 To verify the application locally or using ec2 instance public ip, I used public ip of ec2 intance to check the it works locally.
 <public-ip>:3000
 <public-ip>:3000/health
@@ -125,11 +126,27 @@ Deppy to kubernetes cluster
 kubectl apply -f 
 kubectl apply -f 
 kubectl apply -f 
- 
     
 Pull the image:
 docker push naimat/devops-task
 
+Deploy to Kuberntes cluster:
+kubectl apply -f  sample-service-deployment.yaml
+kubectl apply -f  sample-service-service.yaml
+kubectl apply -f  sample-service-ingress.yaml
+
+The cluster is up and live     
+kubectl get all
+    
+To check service
+kubectl get svc 
+    
+To check pods running
+kubectl get pods
+    
+To check deployment
+kubectl get deployment 
+    
 Ingress controler:
 
 kubectl get ingress
