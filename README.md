@@ -118,36 +118,31 @@ To verify the application locally or using ec2 instance public ip, I used public
 <public-ip>:3000/health,
 <public-ip>:3000/info
     
-Push to Dockerhub:
+# Push to Dockerhub:
 docker login
 docker push naimat/devops-task 
-
-Deppy to kubernetes cluster 
-kubectl apply -f 
-kubectl apply -f 
-kubectl apply -f 
     
-Pull the image:
+# Pull the image:
 docker push naimat/devops-task
 
-Deploy to Kuberntes cluster:
+# Deploy to Kuberntes cluster:
 kubectl apply -f  sample-service-deployment.yaml
 kubectl apply -f  sample-service-service.yaml
 kubectl apply -f  sample-service-ingress.yaml
 
-The cluster is up and live     
+# The cluster is up and live     
 kubectl get all
     
-To check service
+# To check service
 kubectl get svc 
     
-To check pods running
+# To check pods running
 kubectl get pods
     
-To check deployment
+# To check deployment
 kubectl get deployment 
     
-Ingress controler:
+# Ingress controler:
 
 kubectl get ingress
 kubectl get po -n kube-system
@@ -162,7 +157,7 @@ sudo vi /etc/hosts
 
 kubectl -n ingress-nginx port-forward svc/ingress-nginx-controller 3000:443
  
-To Access 
+# To Access 
 
 https://devopstask.com:3000/,
 https://devopstask.com:3000/info,
