@@ -153,8 +153,7 @@ kubectl apply -f  sample-service-deployment.yaml
 kubectl apply -f  sample-service-service.yaml
 
 kubectl apply -f  sample-service-ingress.yaml
-
-# The cluster is up and live     
+  
 kubectl get all
     
 # To check service
