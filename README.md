@@ -105,7 +105,7 @@ helm repo add prometheus-community https://prometheus-community.github.io/helm-c
 
 helm repo update
 
-Install Nginx Ingress:
+# Install Nginx Ingress:
 
 helm install ingress-nginx ingress-nginx/ingress-nginx --namespace ingress-nginx
 Install Prometheus:
