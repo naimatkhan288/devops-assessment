@@ -67,11 +67,11 @@ Export export K3S_CLUSTER_ARGS terminal
 -#export K3S_CLUSTER_ARGS=‘--no-deploy=traefik’
 
 And then 
--# make cluster
+make cluster
 
 Cluster is ready, t heck the cluster
--# k3d cluster list 
--# kubectl get all 
+k3d cluster list 
+kubectl get all 
 
 b) Install helm:
 Download Helm: Visit the Helm GitHub repository (https://github.com/helm/helm/releases)
@@ -98,7 +98,6 @@ helm repo update
 Install Nginx Ingress:
 
 helm install ingress-nginx ingress-nginx/ingress-nginx --namespace ingress-nginx
-
 Install Prometheus:
 
 helm install ingress-nginx ingress-nginx/ingress-nginx --namespace ingress-nginx
@@ -109,35 +108,39 @@ kubectl get deployments -n <namespace>.
 kubectl get deployments -n ingress-nginx
 
 ## III - service deployment
-Build an image:
--# docker image prone -a —> do delete all local images
--# docker build .
--# docker run (image_id)
--# docker run -p 3000:80 (image_id)
--# docker run -p 3000:80 —rm (image_id or name)
+Build and run image locally
+docker build -t naimat/devops-task .
 docker run -p 3000:80 -d naimat/devops-task
 -# docker ps 
+To verify the application locally or using ec2 instance public ip, I used public ip of ec2 intance to check the it works locally.
+<public-ip>:3000
+<public-ip>:3000/health
+<public-ip>:3000/info
+    
+Push to Dockerhub:
+docker login
+docker push naimat/devops-task 
 
-
-Push to dockerhub:
--# docker login
--# docker build -t naimat/devops-task .
--# docker push naimat/devops-task
--# docker push naimat/devops-task
+Deppy to kubernetes cluster 
+kubectl apply -f 
+kubectl apply -f 
+kubectl apply -f 
+ 
+    
+Pull the image:
+docker push naimat/devops-task
 
 Ingress controler:
--# minikube addons list
--# minikube addons enable ingress
--# kubectl get po -n kube-system
 
--# kubectl get ingress
--# kubectl get all -n kube-system
--# kubectl get all -n ingress-nginx
--# kubectl describe svc -n ingress-nginx
--# kubectl get svc -n ingress-nginx
--# kubectl -n ingress-nginx get pods 
+kubectl get ingress
+kubectl get po -n kube-system
+kubectl get all -n kube-system
+kubectl get all -n ingress-nginx
+kubectl describe svc -n ingress-nginx
+kubectl get svc -n ingress-nginx
+kubectl -n ingress-nginx get pods 
 
--# sudo vi /etc/hosts 
+sudo vi /etc/hosts 
 127.0.0.1  devopstask.com
 
 -# kubectl -n ingress-nginx port-forward svc/ingress-nginx-controller 3000:443
