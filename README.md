@@ -61,7 +61,9 @@ all the resources mentioned above should exist on the same one namespace, and th
  # DevOps Assessment Solution
 
 ## I - environment preparation:
+
 a) Create a cluster:
+
 Export export K3S_CLUSTER_ARGS terminal
 
 export K3S_CLUSTER_ARGS=‘--no-deploy=traefik’
@@ -84,7 +86,6 @@ Verify Helm installation: To ensure that Helm is installed correctly and working
 
 helm version
 
-
 ## II - cluster preparation:
 Install the following services to your cluster: 
 - nginx ingress
@@ -95,6 +96,7 @@ Make sure you have helm installed on your machine
 Add the necessary Helm repositories 
 
 Create a namespace 
+
 kubectl create namespace ingress-nginx
 
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
@@ -137,6 +139,7 @@ To verify the application locally or using ec2 instance public ip, I used public
     
 # Push to Dockerhub:
 docker login
+
 docker push naimat/devops-task 
     
 # Pull the image:
@@ -178,6 +181,7 @@ kubectl get svc -n ingress-nginx
 kubectl -n ingress-nginx get pods 
 
 sudo vi /etc/hosts 
+
 127.0.0.1  devopstask.com
 
 kubectl -n ingress-nginx port-forward svc/ingress-nginx-controller 3000:443
