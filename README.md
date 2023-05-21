@@ -114,8 +114,8 @@ docker run -p 3000:80 -d naimat/devops-task
 -# docker ps 
     
 To verify the application locally or using ec2 instance public ip, I used public ip of ec2 intance to check the it works locally.
-<public-ip>:3000
-<public-ip>:3000/health
+<public-ip>:3000,
+<public-ip>:3000/health,
 <public-ip>:3000/info
     
 Push to Dockerhub:
@@ -164,6 +164,6 @@ sudo vi /etc/hosts
  
 To Access 
 
-https://devopstask.com:3000/
-https://devopstask.com:3000/info
+https://devopstask.com:3000/,
+https://devopstask.com:3000/info,
 https://devopstask.com:3000/health
