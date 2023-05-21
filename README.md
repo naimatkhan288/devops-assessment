@@ -58,7 +58,7 @@ all the resources mentioned above should exist on the same one namespace, and th
  ✨ Good Luck ✨
 
  ------------------------------------------------------------------------
- # # DevOps Assessment Solution
+ # DevOps Assessment Solution
 
 ## I - environment preparation:
 a) Create a cluster:
