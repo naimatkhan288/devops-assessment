@@ -67,16 +67,23 @@ Export export K3S_CLUSTER_ARGS terminal
 export K3S_CLUSTER_ARGS=‘--no-deploy=traefik’
 
 And then 
+
 make cluster
 
-Cluster is ready, t heck the cluster
+Cluster is ready, to heck the cluster
+
 k3d cluster list 
+
 kubectl get all 
 
 b) Install helm:
+
 Download Helm: Visit the Helm GitHub repository (https://github.com/helm/helm/releases)
+
 Install helm using the 
+
 Verify Helm installation: To ensure that Helm is installed correctly and working, you can run the following command:
+
 helm version
 
 
@@ -101,17 +108,23 @@ helm install ingress-nginx ingress-nginx/ingress-nginx --namespace ingress-nginx
 Install Prometheus:
 
 helm install ingress-nginx ingress-nginx/ingress-nginx --namespace ingress-nginx
+
 helm install prometheus prometheus-community/prometheus --namespace ingress-nginx
 
 Once the installation is complete, you should have Nginx Ingress and Prometheus running in your cluster. You can verify their deployment using kubectl commands,
-kubectl get deployments -n <namespace>.
+
+kubectl get deployments -n <namespace>
+
 kubectl get deployments -n ingress-nginx
 
 ## III - service deployment:
 Build image from the Dockerfile and run image locally
+
 docker build -t naimat/devops-task .
+
 docker run -p 3000:80 -d naimat/devops-task
--# docker ps 
+
+docker ps 
     
 To verify the application locally or using ec2 instance public ip, I used public ip of ec2 intance to check the it works locally.
 
